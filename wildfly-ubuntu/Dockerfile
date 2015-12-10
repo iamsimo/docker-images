@@ -24,11 +24,11 @@ RUN apt-get -y install oracle-java8-set-default
 
 #Switching to wildfly to install Wildfly AS
 USER wildfly
-
+#Set Wildfly version
 ENV WILDFLY_VERSION 9.0.2.Final
-
+#Install Wildfly
 RUN cd $HOME && curl -O http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.zip && unzip wildfly-$WILDFLY_VERSION.zip && mv $HOME/wildfly-$WILDFLY_VERSION $HOME/wildfly && rm wildfly-$WILDFLY_VERSION.zip
-
+#Set JBOSS_HOME
 ENV JBOSS_HOME /opt/wildfly/wildfly
 
 EXPOSE 8080 9990
